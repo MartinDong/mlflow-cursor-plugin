@@ -1,0 +1,12 @@
+{
+  "name": "mlflow-cursor-tracing",
+  "displayName": "MLflow Cursor Tracing",
+  "version": "1.0.0",
+  "description": "Uploads each Cursor agent turn as one MLflow trace: thinking, tools, and nested subagents, grouped by conversation.",
+  "license": "Apache-2.0",
+  "keywords": ["mlflow", "tracing", "observability", "cursor"],
+  "category": "developer-tools",
+  "hooks": "./hooks/hooks.json",
+  "rules": "./rules/",
+  "mcpServers": "./mcp.json"
+}

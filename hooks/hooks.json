@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeSubmitPrompt": [
+      { "command": "node \"${CURSOR_PLUGIN_ROOT}/scripts/run_hook.js\"", "timeout": 8 }
+    ],
+    "afterAgentThought": [
+      { "command": "node \"${CURSOR_PLUGIN_ROOT}/scripts/run_hook.js\"", "timeout": 8 }
+    ],
+    "afterAgentResponse": [
+      { "command": "node \"${CURSOR_PLUGIN_ROOT}/scripts/run_hook.js\"", "timeout": 8 }
+    ],
+    "postToolUse": [
+      { "command": "node \"${CURSOR_PLUGIN_ROOT}/scripts/run_hook.js\"", "timeout": 8 }
+    ],
+    "postToolUseFailure": [
+      { "command": "node \"${CURSOR_PLUGIN_ROOT}/scripts/run_hook.js\"", "timeout": 8 }
+    ],
+    "subagentStart": [
+      { "command": "node \"${CURSOR_PLUGIN_ROOT}/scripts/run_hook.js\"", "timeout": 8 }
+    ],
+    "subagentStop": [
+      { "command": "node \"${CURSOR_PLUGIN_ROOT}/scripts/run_hook.js\"", "timeout": 8 }
+    ],
+    "preCompact": [
+      { "command": "node \"${CURSOR_PLUGIN_ROOT}/scripts/run_hook.js\"", "timeout": 8 }
+    ],
+    "stop": [
+      { "command": "node \"${CURSOR_PLUGIN_ROOT}/scripts/run_hook.js\"", "timeout": 90 }
+    ],
+    "sessionEnd": [
+      { "command": "node \"${CURSOR_PLUGIN_ROOT}/scripts/run_hook.js\"", "timeout": 90 }
+    ]
+  }
+}

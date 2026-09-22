@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "mlflow-mcp": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--with",
+        "mlflow[mcp]>=3.16.1",
+        "mlflow",
+        "mcp",
+        "run"
+      ],
+      "env": {
+        "UV_DEFAULT_INDEX": "https://pypi.tuna.tsinghua.edu.cn/simple",
+        "MLFLOW_TRACKING_URI": "http://YOUR_USERNAME:YOUR_PASSWORD@YOUR_MLFLOW_HOST:YOUR_PORT",
+        "MLFLOW_EXPERIMENT_ID": "YOUR_EXPERIMENT_ID",
+        "MLFLOW_MCP_TOOLS": "genai"
+      }
+    }
+  }
+}

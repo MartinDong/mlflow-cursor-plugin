@@ -1,0 +1,14 @@
+---
+description: Record Cursor agent turns in MLflow and use the configured tracking server when inspecting traces
+alwaysApply: true
+---
+
+# MLflow Cursor tracing
+
+This workspace uploads Cursor agent turns through the MLflow Cursor plugin.
+
+- One turn is one trace. `stop` and `sessionEnd` share a lock so the same buffer is not uploaded twice. A stop that arrives before any real agent work waits until that work is buffered.
+- The conversation id is `mlflow.trace.session` (trace metadata and tag), so turns in one chat group together.
+- Root inputs and outputs nest the user and assistant text under `messages`, which this MLflow UI shows once. Thinking, tool calls, and tool failures are child spans. A subagent is one nested `AGENT` span on the parent trace.
+- Tracking URI, experiment id, and basic-auth credentials come from the plugin `config.env`, or from `MLFLOW_TRACKING_URI`, `MLFLOW_EXPERIMENT_ID`, `MLFLOW_TRACKING_USERNAME`, and `MLFLOW_TRACKING_PASSWORD`.
+- The MLflow MCP server is `mlflow-mcp` in `mcp.json`. Replace `YOUR_USERNAME`, `YOUR_PASSWORD`, `YOUR_MLFLOW_HOST`, `YOUR_PORT`, and `YOUR_EXPERIMENT_ID` before use. When the user asks about traces, latency, failures, feedback, or agent quality, use that server's tools (`search_traces`, `get_trace`, `log_feedback`, and the rest) against the configured experiment. Do not invent trace IDs.
